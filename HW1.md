@@ -150,13 +150,67 @@ In this case ,$U = \frac{1}{\sqrt{2^n}} M$, and we can verify that $U^*U = I$.
 ## 3 Projectors and Reflections
 
 **(a)**
+d = 2 
+$$
+Q = |\phi\rangle \langle \psi | \\
 
+\text{when } |\psi\rangle = | 0 \rangle = (1 \ 0 )^T \\ and \ |\phi \rangle = | + \rangle = \frac{1}{\sqrt{2}} (1 \ 1)^T \\
+Q = \begin{bmatrix}\frac{1}{\sqrt{2}} & 0 \\ \frac{1}{\sqrt{2}} & 0 \end{bmatrix}
+\\ 
+\text{when } |\psi\rangle = | + \rangle = \frac{1}{\sqrt{2}} (1 \ 1)^T \\ and \ |\phi \rangle = | 0 \rangle = (1 \ 0 )^T \\
+Q = \begin{bmatrix}\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} \\ 0 & 0 \end{bmatrix}
+$$
 **(b)**
-
 **(c)**
+$|\phi\rangle$ 
+
+0
 
 **(d)**
+The transformation P will project any vector to the one-dimensional subspace spanned by $|\phi\rangle$ -- remain the component of the vector in the direction of $|\phi\rangle$ and remove the component of the vector that is orthogonal to $|\phi\rangle$.
 
 **(e)**
+This transformation is a reflection transformation that reflects any vectors across the hyperplane perpendicular to $|\phi\rangle$.
+
+Because I is a hermitian matrix and $(|\phi\rangle \langle \phi |)^* = (|\phi\rangle \langle \phi |)$
+,so P is also a hermitian matrix.
+And $R^* = (I - 2P)^* = I - 2P = R$, So I - 2P is a hermitian matrix as well.
+
+we want to prove that $(I - 2P)^* (I - 2P) = I$.
+
+We set R = I - 2P, so we need to prove that $R^* R = I$, i.e. $R^2 = I$.
+
+$$
+R^2 = (I - 2P)^2 = I - 4P + 4P^2 \\
+= I - 4P + 4P = I
+$$
+Thus, we can conclude that R is a unitary transformation.
 
 **(f)**
+*(i)*
+if we can prove that for any basis vector $|\psi_i\rangle$, U$|\psi_i\rangle$ = |$\phi_i\rangle$, then we can conclude that U is a matrix that maps the basis $\{|\psi_i\rangle\}$ to the basis $\{|\phi_i\rangle\}$.
+
+$$
+U|\psi_i\rangle = \sum_{j=1}^d |\phi_j\rangle \langle \psi_j | \psi_i \rangle \\
+= \sum_{j=1}^d |\phi_j\rangle \delta_{ji} = |\phi_i\rangle
+$$
+
+So U can be written as $U = \sum_{i=1}^d |\phi_i\rangle \langle \psi_i |$.
+
+Then we want to prove that U is a unitary transformation, i.e. $U^*U = I$.
+
+U^* = $\sum_{i=1}^d |\psi_i\rangle \langle \phi_i |$.
+$$
+U^*U = \sum_{i=1}^d \sum_{j=1}^d |\psi_i\rangle \langle \phi_i | \phi_j\rangle \langle \psi_j | \\
+= \sum_{i=1}^d \sum_{j=1}^d |\psi_i\rangle \delta_{ij} \langle \psi_j | \\
+= \sum_{i=1}^d |\psi_i\rangle \langle \psi_i | = I
+$$
+Therefore, we can conclude that U is a unitary transformation.
+
+*(ii)*
+
+$I = \sum_{i=1}^d |\phi_i\rangle \langle \phi_i|$
+
+It reflect any basis vector $|\psi_i\rangle$ to itself.
+
+<div style="page-break-after: always;"></div>
