@@ -1,9 +1,9 @@
-# <center> HW1 Jinhao Luo</center>
+# <center> HW1</center>
 
-
-<div style="page-break-after: always;"></div>
+<center> made by Jinhao Luo, netID: jinhao4, 2026 Feb 13 </center>
 
 ## 1 Ket notation
+
 **(a)**
 It should satisfy that $|\psi\rangle$ is normalized:
 $\langle \psi | \psi \rangle = 1$
@@ -41,7 +41,6 @@ $$
 For (i) -> (ii), if we know that T is unitary, $T^*T = I$
 $$
 \langle Tu,Tv \rangle = (Tu)^*Tv\\ = u^*T^*Tv \\= u^*Iv\\ = \langle u,v \rangle
-
 $$
 For (ii) -> (iii)
 We know that
@@ -67,7 +66,7 @@ To prove such linear transformation T exisits.
 We know T is a linear transformation, so we can write T as a matrix A.
 $$
 \langle u , Tv \rangle = u^\dagger Av = ( A^\dagger u )^\dagger v = \langle A^\dagger u , v \rangle
-$$ 
+$$
 Therefore, if we define $T^\dagger$ as the linear transformation represented by $A^\dagger$, we can get that $\langle u , Tv \rangle = \langle T^\dagger u , v \rangle$.
 
 To prove such linear transformation is unique, we can assume that there are two linear transformations $T_1$ and $T_2$ that satisfy the condition $\langle u , Tv \rangle = \langle T_1^\dagger u , v \rangle= \langle T_2^\dagger u , v \rangle$.
@@ -97,7 +96,6 @@ if we define the column of U as $u_1,u_2,...,u_n$, we can get that $U = [u_1,u_2
 from (ii), we can get that $U^*U = I$, so we can get that 
 
 $$
-
 \begin{bmatrix}
 u_1^*u_1 & u_1^*u_2 & ... & u_1^*u_n \\
 u_2^*u_1 & u_2^*u_2 & ... & u_2^*u_n \\
@@ -214,3 +212,95 @@ $I = \sum_{i=1}^d |\phi_i\rangle \langle \phi_i|$
 It reflect any basis vector $|\psi_i\rangle$ to itself.
 
 <div style="page-break-after: always;"></div>
+## 4 Quantum Anti-Zeno Effect
+
+set a integer n, and we set the $\epsilon = \frac{\pi}{2*n}$. Then every time, we perform a measurement on the state based on the basis $\{|\psi_k\rangle, |\psi_k^\perp\rangle\}$, where $|\psi_k\rangle = \cos(k\epsilon)|0\rangle + \sin(k\epsilon)|1\rangle$ and $|\psi_k^\perp\rangle = -\sin(k\epsilon)|0\rangle + \cos(k\epsilon)|1\rangle$.
+
+Every time we perform a measurement, we expect to get the state $|\psi_k\rangle$.
+
+For the first measurement, the k = 1, then k = 2 for the second measurement, and so on.  Ater the n-th measurement, k = n. Then we can get this qubit's state will be $|\psi_n\rangle = \cos(n\epsilon)|0\rangle + \sin(n\epsilon)|1\rangle = 1$.
+
+When n is large enough, we can get that $\epsilon$ is small enough. And the ability of success in every process is $\cos^2(\epsilon)$. When n is large enough, $\cos^2(\epsilon) \approx 1-\epsilon^2/2$ and it's close to 1. So the probability of success in every process is close to 1, and the total probability of success is close to 1 as well. 
+
+<div style="page-break-after: always;"></div>
+## 5 Composite Quantum Systems
+**(a)**
+we know that 
+
+$$
+I = \begin{bmatrix}
+    1 & 0 \\
+    0 & 1
+\end{bmatrix} \\
+H = \frac{1}{\sqrt{2}} \begin{bmatrix}
+    1 & 1 \\
+    1 & -1  
+\end{bmatrix} \\
+I \otimes H = \frac{1}{\sqrt{2}} \begin{bmatrix}
+    1 & 1 & 0 & 0 \\
+    1 & -1 & 0 & 0 \\
+    0 & 0 & 1 & 1 \\
+    0 & 0 & 1 & -1  
+\end{bmatrix} \\
+H \otimes I = \frac{1}{\sqrt{2}} \begin{bmatrix}
+    1 & 0 & 1 & 0 \\
+    0 & 1 & 0 & 1 \\
+    1 & 0 & -1 & 0 \\
+    0 & 1 & 0 & -1
+\end{bmatrix} \\
+H \otimes H = \frac{1}{2} \begin{bmatrix}
+    1 & 1 & 1 & 1 \\
+    1 & -1 & 1 & -1 \\
+    1 & 1 & -1 & -1 \\
+    1 & -1 & -1 & 1
+\end{bmatrix}
+$$
+
+**(b)**
+$$
+(I \otimes H)|0,1\rangle = ( I |0\rangle ) \otimes ( H |1\rangle )  = |0\rangle \otimes \frac{1}{\sqrt{2}} (|0\rangle - |1\rangle) \\
+= \frac{1}{\sqrt{2}}(|0,0\rangle - |0,1\rangle) \\
+(H \otimes I)|0,1\rangle = ( H |0\rangle ) \otimes ( I |1\rangle ) \\ = \frac{1}{\sqrt{2}} (|0\rangle + |1\rangle) \otimes |1\rangle \\   
+= \frac{1}{\sqrt{2}}(|0,1\rangle + |1,1\rangle) \\
+$$
+
+**(c)**
+
+We now set two qubits in the basis for $\mathbb{C}^{de}$
+$$
+|\phi_{ij}\rangle = |u_i\rangle \otimes |v_j\rangle \\
+|\phi_{kl}\rangle = |u_k\rangle \otimes |v_l\rangle \\
+\text{Their inner product =} \langle \phi_{ij} | \phi_{kl} \rangle \\
+= (\langle u_i | \otimes \langle v_j |) (|u_k\rangle \otimes |v_l\rangle) \\
+\\
+= \langle u_i | u_k \rangle \cdot \langle v_j | v_l \rangle
+\\ = \delta_{ik} \cdot \delta_{jl} 
+$$
+So if and only if $i = k$ and $j = l$, the inner product is 1, otherwise, the inner product is 0. So this set is a orthonormal sets. And we know that the number of vectors in this set is $de$, which is the same as the dimension of $\mathbb{C}^{de}$, so this set is an orthonormal basis for $\mathbb{C}^{de}$.
+
+**(d)**
+For every element in matrix $A \otimes B$, we can write it as
+$$
+(A \otimes B)_{ij,kl} = (\langle u_i | \otimes \langle v_j |) (A \otimes B) (| u_k \rangle \otimes | v_l \rangle) \\
+= \langle u_i | A | u_k \rangle \cdot \langle v_j | B | v_l \rangle = A_{ik} \cdot B_{jl}
+$$
+We know that
+$$
+A = \sum_{i,k} A_{ik} |u_i\rangle\langle u_k|,  B = \sum_{j,l} B_{jl} |v_j\rangle\langle v_l|
+$$
+
+So we can get that 
+$$
+A \otimes B = \sum_{i,k} \sum_{j,l} \langle u_i | A | u_k \rangle \cdot \langle v_j | B | v_l \rangle \cdot (|u_i\rangle\langle u_k|) \otimes (|v_j\rangle\langle v_l|) \\
+$$
+
+**(e)**
+No.
+$$
+|\psi\rangle = (\frac{1}{\sqrt{2}}(|0\rangle + |1\rangle) )^{\otimes n} = (|+\rangle)^{\otimes n} \\
+$$
+We can write the Alice part as $|\phi_A\rangle$ = $(|+\rangle)^{\otimes j}$
+, and the Bob part as $|\phi_B\rangle$ = $(|+\rangle)^{\otimes n-j}$.
+Then we can get that $|\psi\rangle = |\phi_A\rangle \otimes |\phi_B\rangle$.
+
+By the definition of entangled state, we can conclude that $|\psi\rangle$ is not an entangled state, because it can be written as a tensor product of two states.
